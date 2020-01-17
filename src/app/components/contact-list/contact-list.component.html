@@ -4,7 +4,7 @@
     <td (click)="populateForm(cnt)">{{cnt.email}}</td>
     <td (click)="populateForm(cnt)">{{cnt.phone}}</td>
     <td>
-      <button class="btn btn-sm btn-outline-danger">X</button>
+      <button (click)="onDelete(cnt.id)" class="btn btn-sm btn-outline-danger">X</button>
     </td>
   </tr>
 </table>

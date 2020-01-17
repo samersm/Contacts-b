@@ -32,4 +32,9 @@ export class ContactService {
     return this.http.put(this.rootURL + formData.id, formData);
   }
 
+  // Delete Contact
+  deleteContact(id: number) {
+    return this.http.delete(this.rootURL + id);
+  }
+
 }

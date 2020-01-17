@@ -44,7 +44,7 @@ export class ContactDetailComponent implements OnInit {
 
   updateRecord(form: NgForm) {
     this.service.updateContact(form.value).subscribe(res => {
-      this.toastr.success('Updated Successfully', 'Contact Registered');
+      this.toastr.info('Updated Successfully', 'Contact Registered');
       this.resetForm(form);
       this.service.refreshList();
     });
