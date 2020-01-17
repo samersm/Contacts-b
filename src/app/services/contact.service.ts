@@ -1,7 +1,6 @@
 import { Contact } from './Contact.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -9,17 +8,18 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
 
+  items: any;
   formData: Contact;
-  list: Observable<Contact[]>;
+  list: Contact[];
   readonly rootURL = "https://apex.oracle.com/pls/apex/eudialyte/contact_api/contacts/"
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
 
   // Get Contacts
   refreshList() {
     this.http.get(this.rootURL)
-      .toPromise().then(res => this.list = res as Observable<Contact[]>);
+      .toPromise().then(res => this.list = res as Contact[]);
   }
 
   // Post Contact

@@ -10,7 +10,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ContactDetailComponent implements OnInit {
 
-  constructor(private service: ContactService, private toastr: ToastrService) { }
+
+
+  constructor(public service: ContactService, public toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();

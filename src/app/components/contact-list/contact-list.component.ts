@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor(private service: ContactService, private toastr: ToastrService) { }
+  constructor(public service: ContactService, public toastr: ToastrService) { }
 
   ngOnInit() {
     this.service.refreshList();
