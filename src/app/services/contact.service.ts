@@ -1,5 +1,6 @@
 import { Contact } from './Contact.model';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,13 @@ import { Injectable } from '@angular/core';
 export class ContactService {
 
   formData: Contact
+  readonly rootURL = "https://apex.oracle.com/pls/apex/eudialyte/contact_api/contacts/"
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  // Post Contact
+  postContact(formData: Contact) {
+    return this.http.post(this.rootURL, formData)
+  }
+
 }
