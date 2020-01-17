@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../../services/contact.service';
+import { Contact } from '../../services/Contact.model';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ContactService) { }
 
   ngOnInit() {
+    this.service.refreshList();
   }
 
+  populateForm(cnt: Contact) {
+    this.service.formData = cnt;
+  }
 }
