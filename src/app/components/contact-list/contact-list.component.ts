@@ -17,7 +17,7 @@ export class ContactListComponent implements OnInit {
   }
 
   populateForm(cnt: Contact) {
-    this.service.formData = Object.assign({}, cnt);
+    this.service.items = Object.assign({}, cnt);
   }
 
   onDelete(id: number) {

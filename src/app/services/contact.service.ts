@@ -8,8 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactService {
 
-  items: any;
-  formData: Contact;
+  items: Contact;
   list: Contact[];
   readonly rootURL = "https://apex.oracle.com/pls/apex/eudialyte/contact_api/contacts/"
 
@@ -23,13 +22,13 @@ export class ContactService {
   }
 
   // Post Contact
-  postContact(formData: Contact) {
-    return this.http.post(this.rootURL, formData);
+  postContact(items: Contact) {
+    return this.http.post(this.rootURL, items);
   }
 
   // Update Contact
-  updateContact(formData: Contact) {
-    return this.http.put(this.rootURL + formData.id, formData);
+  updateContact(items: Contact) {
+    return this.http.put(this.rootURL + items.id, items);
   }
 
   // Delete Contact

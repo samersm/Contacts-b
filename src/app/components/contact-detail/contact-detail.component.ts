@@ -21,7 +21,7 @@ export class ContactDetailComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
-    this.service.formData = {
+    this.service.items = {
       id: null,
       name: '',
       email: '',
