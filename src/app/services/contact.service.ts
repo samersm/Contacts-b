@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ContactService {
 
   items: Contact;
-  list: Contact[];
+  list: any;
   readonly rootURL = "https://apex.oracle.com/pls/apex/eudialyte/contact_api/contacts/"
 
   constructor(public http: HttpClient) { }
