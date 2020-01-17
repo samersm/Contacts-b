@@ -28,13 +28,25 @@ export class ContactDetailComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.insertRecord(form);
+    if (form.value.id == null)
+      this.insertRecord(form);
+    else
+      this.updateRecord(form);
   }
 
   insertRecord(form: NgForm) {
     this.service.postContact(form.value).subscribe(res => {
       this.toastr.success('Inserted Successfully', 'Contact Registered');
-      this.resetForm(form)
+      this.resetForm(form);
+      this.service.refreshList();
+    });
+  }
+
+  updateRecord(form: NgForm) {
+    this.service.updateContact(form.value).subscribe(res => {
+      this.toastr.success('Updated Successfully', 'Contact Registered');
+      this.resetForm(form);
+      this.service.refreshList();
     });
   }
 }

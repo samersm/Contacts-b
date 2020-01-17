@@ -1,8 +1,8 @@
 <table class="table table-hover">
   <tr *ngFor="let cnt of (service.list)?.items">
-    <td (click)="populateForm(cnt)">[{{cnt.name}}]</td>
-    <td (click)="populateForm(cnt)">[{{cnt.email}}]</td>
-    <td (click)="populateForm(cnt)">[{{cnt.phone}}]</td>
+    <td (click)="populateForm(cnt)">{{cnt.name}}</td>
+    <td (click)="populateForm(cnt)">{{cnt.email}}</td>
+    <td (click)="populateForm(cnt)">{{cnt.phone}}</td>
     <td>
       <button class="btn btn-sm btn-outline-danger">X</button>
     </td>

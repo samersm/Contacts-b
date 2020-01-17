@@ -17,9 +17,6 @@ export class ContactService {
 
 
   // Get Contacts
-  getContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.rootURL);
-  }
   refreshList() {
     this.http.get(this.rootURL)
       .toPromise().then(res => this.list = res as Observable<Contact[]>);
@@ -28,6 +25,11 @@ export class ContactService {
   // Post Contact
   postContact(formData: Contact) {
     return this.http.post(this.rootURL, formData);
+  }
+
+  // Update Contact
+  updateContact(formData: Contact) {
+    return this.http.put(this.rootURL + formData.id, formData);
   }
 
 }
