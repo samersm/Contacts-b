@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-detail',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactDetailComponent implements OnInit {
 
-  constructor(private service: ContactService) { }
+  constructor(private service: ContactService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -32,6 +33,7 @@ export class ContactDetailComponent implements OnInit {
 
   insertRecord(form: NgForm) {
     this.service.postContact(form.value).subscribe(res => {
+      this.toastr.success('Inserted Successfully', 'Contact Registered');
       this.resetForm(form)
     });
   }
